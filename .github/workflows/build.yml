@@ -1,0 +1,21 @@
+name: Build and test
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  windows:
+    runs-on: windows-2025
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Build Android daemon and Windows engine
+        shell: pwsh
+        run: .\scripts\build.ps1
+      - name: Run qualification tests
+        shell: pwsh
+        run: .\scripts\test.ps1

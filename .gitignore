@@ -1,0 +1,6 @@
+/android/build/
+/windows/build/
+/.vs/
+/*.user
+/*.suo
+*.log
